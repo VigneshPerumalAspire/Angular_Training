@@ -9,7 +9,7 @@ export class CommonService {
 
     constructor(private http: HttpClient) { }
 
-    ExecuteGet(): Observable<any> {
-        return this.http.get('https://mocki.io/v1/a638c068-89c2-4e24-8447-20a03f5e7b77');
+    ExecuteGet(url: string): Observable<any> {
+        return this.http.get(url);
     }
 }
