@@ -1,0 +1,47 @@
+<section class="team-sec">
+    <div class="container">
+        <h3>Teams List</h3>
+        <table mat-table [dataSource]="teamMembers" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="Position">
+                <th mat-header-cell *matHeaderCellDef>No.</th>
+                <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+            </ng-container>
+            <ng-container matColumnDef="GameActivityTag">
+                <th mat-header-cell *matHeaderCellDef>GameActivityTag</th>
+                <td mat-cell *matCellDef="let element"> {{element.GameActivityTag}} </td>
+            </ng-container>
+            <ng-container matColumnDef="TeamName">
+                <th mat-header-cell *matHeaderCellDef> TeamName </th>
+                <td mat-cell *matCellDef="let element"> {{element.TeamName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="StartDate">
+                <th mat-header-cell *matHeaderCellDef> StartDate </th>
+                <td mat-cell *matCellDef="let element"> {{element.StartDate | date}} </td>
+            </ng-container>
+            <ng-container matColumnDef="EndDate">
+                <th mat-header-cell *matHeaderCellDef> EndDate </th>
+                <td mat-cell *matCellDef="let element"> {{element.EndDate || '-'}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Actions">
+                <th style="text-align: center;"mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element; let i = index;">
+                    <div class="action-btn">
+                        <a href="javascript:void(0)" (click)="ViewTeamDetails(element)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        <a href="javascript:void(0)" (click)="Delete(i)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </div>
+                </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <table class="footer">
+            <tr *ngIf="!teamMembers?.length">
+              <td [attr.colspan]="displayedColumns.length">
+                No Records Found.
+              </td>
+            </tr>
+          </table>
+    </div>
+</section>

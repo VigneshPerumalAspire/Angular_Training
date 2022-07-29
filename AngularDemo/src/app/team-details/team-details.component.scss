@@ -1,0 +1,23 @@
+section {
+    h3 {
+        color: #11607c;
+        font-weight: 500;
+        position: relative;
+        width: 100%;
+        padding: 0px 10px;
+
+        a {
+            position: absolute;
+            right: 2rem;
+            color: #818181;
+            font-size: 20px;
+        }
+    }
+
+    table {
+        tr th {
+            color: #2a4b61;
+            font-weight: 500;
+        }
+    }
+}

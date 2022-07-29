@@ -1,0 +1,41 @@
+<section class="details">
+    <div class="row">
+        <h3>Team Details:
+            <a href="javascript:void(0)" (click)="close()"><i class="fa fa-times" aria-hidden="true"></i></a>
+        </h3>
+        <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">GameActivityDescription</th>
+                <td>{{teamDetails.GameActivityDescription}}</td>
+                <th scope="row">GameActivityId</th>
+                <td>{{teamDetails.GameActivityId}}</td>
+              </tr>
+              <tr>
+                <th scope="row">GameActivityIdTag</th>
+                <td>{{teamDetails.GameActivityIdTag}}</td>
+                <th scope="row">GameActivityTag</th>
+                <td>{{teamDetails.GameActivityTag}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Gender</th>
+                <td>{{teamDetails.Gender}}</td>
+                <th scope="row">GenderCode</th>
+                <td>{{teamDetails.GenderCode}}</td>
+              </tr>
+              <tr>
+                <th scope="row">PublicTeamId</th>
+                <td>{{teamDetails.PublicTeamId}}</td>
+                <th scope="row">StartDate</th>
+                <td>{{teamDetails.StartDate | date}}</td>
+              </tr>
+              <tr>
+                <th scope="row">TeamCode</th>
+                <td>{{teamDetails.TeamCode}}</td>
+                <th scope="row">TeamName</th>
+                <td>{{teamDetails.TeamName}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</section>
