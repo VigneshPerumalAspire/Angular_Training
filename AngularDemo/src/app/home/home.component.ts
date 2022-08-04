@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { CommonService } from '../services/common.service';
+import { CommonService, Teams } from '../services/common.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TeamDetailsComponent } from '../team-details/team-details.component';
 
@@ -10,7 +10,7 @@ import { TeamDetailsComponent } from '../team-details/team-details.component';
 })
 export class HomeComponent implements OnInit {
 
-  teamMembers: any;
+  teamMembers: Teams[] = [];
   displayedColumns: string[] = ['Position', 'GameActivityTag', 'TeamName', 'StartDate', 'EndDate', 'Actions'];
   constructor(private commonservice: CommonService, private changeDetectorRefs: ChangeDetectorRef,
     public dialog: MatDialog) { }
@@ -20,8 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   GetTeamMembers(): void {
-    const apiUrl = 'https://mocki.io/v1/a638c068-89c2-4e24-8447-20a03f5e7b77';
-    this.commonservice.ExecuteGet(apiUrl).subscribe((response: any) => {
+    this.commonservice.ExecuteGet().subscribe((response: any) => {
       if (response) {
         this.teamMembers = response.Team;
       }
@@ -36,13 +35,15 @@ export class HomeComponent implements OnInit {
   }
 
   ViewTeamDetails(Details: any): void {
-    this.dialog.open(TeamDetailsComponent, {
+    let dialogRef = this.dialog.open(TeamDetailsComponent, {
       width: '75%',
       disableClose: true,
       data: {
         teamdetails: Details
       },
     });
+
+    dialogRef.afterClosed().subscribe(result => {})
   }
 
 }
