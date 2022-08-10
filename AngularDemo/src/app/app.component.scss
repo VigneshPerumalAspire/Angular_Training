@@ -3,10 +3,21 @@
     display: flex;
     align-items: center;
     background-color: #00244b;
-    color: white;
     font-weight: 500;
-    font-size: 16px;;
+    font-size: 16px;
     img {
         margin: 0 16px;
+    }
+    nav {
+        a {
+            color: white;
+        }
+        .navbar-nav {
+            border-left: 1px solid #5d5d5da8;
+            padding-left: 5px;
+            li.active a {
+                color: #346eaa !important;
+            }
+        }
     }
 }

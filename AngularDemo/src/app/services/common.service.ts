@@ -6,18 +6,18 @@ export interface Teams {
     GameActivityTag: string;
     TeamName: string;
     StartDate: string;
-} 
+}
 
 @Injectable({
     providedIn: 'root'
 })
 export class CommonService {
 
-    apiUrl = 'https://mocki.io/v1/a638c068-89c2-4e24-8447-20a03f5e7b77';
+    baseUrl = 'https://mocki.io/v1/';
 
     constructor(private http: HttpClient) { }
 
-    ExecuteGet(): Observable<any> {
-        return this.http.get(this.apiUrl);
+    ExecuteGet(apiendpoint: string): Observable<any> {
+        return this.http.get(this.baseUrl + apiendpoint);
     }
 }

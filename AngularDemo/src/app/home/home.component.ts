@@ -20,13 +20,17 @@ export class HomeComponent implements OnInit {
   }
 
   GetTeamMembers(): void {
-    this.commonservice.ExecuteGet().subscribe((response: any) => {
-      if (response) {
-        this.teamMembers = response.Team;
+    const apiEndPoint = 'a638c068-89c2-4e24-8447-20a03f5e7b77';
+    this.commonservice.ExecuteGet(apiEndPoint).subscribe({
+      next: (response: any) =>  {
+        if (response) {
+          this.teamMembers = response.Team;
+        }
+      },
+      error: (error: any) => {
+        return error;
       }
-    }, (error: any) => {
-      return error;
-    })
+  });
   }
 
   Delete(index: number): void {
