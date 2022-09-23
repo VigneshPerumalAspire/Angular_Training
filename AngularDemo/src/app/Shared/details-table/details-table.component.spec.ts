@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DetailsTableComponent } from './details-table.component';
 import { CommonService, Teams } from '../../services/common.service';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA, SimpleChange } from '@angular/core';
 
 describe('DetailsTableComponent', () => {
   let component: DetailsTableComponent;

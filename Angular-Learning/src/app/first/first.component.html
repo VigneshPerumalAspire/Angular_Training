@@ -1,0 +1,40 @@
+<div class="row" style="padding: 20px;">
+    <h3>{{ data.name }}</h3>
+    <p>{{ data.content }}</p>
+
+    <h3>Form Arry - With Form Group Object</h3>
+    <div class="form-sec">
+        <div class="example-container">
+            <button mat-raised-button (click)="addItem()">Add</button>
+            <form [formGroup]="userList">
+                <div formArrayName="list" *ngFor="let item of list?.controls; let i = index;">
+                    <ng-container [formGroupName]="i">
+                        <mat-form-field> <input matInput formControlName="firstname" placeholder="first name">
+                        </mat-form-field>
+                        <mat-form-field> <input matInput formControlName="lastname" placeholder="last name">
+                        </mat-form-field>
+                        <p *ngIf="isSubmitted && list.controls[i].get('firstname')?.hasError('required')"
+                            style="color:red;">Form fields are required.
+                        </p>
+                    </ng-container>
+                </div>
+                <button mat-raised-button color="accent" (click)="submit()">Submit</button>
+            </form>
+            <br>
+            <p>Form Data</p>
+            <p> {{ userList.value | json }}</p>
+        </div>
+
+        <h3>Form Arry - Form Control</h3>
+        <div class="form-sec">
+            <form [formGroup]="fruitList">
+                <mat-form-field> <input matInput #input placeholder="Enter Fruits" (keyup.enter)="addfruit(input)"></mat-form-field><br>
+                <ng-container formArrayName="fruits" *ngFor="let item of fruits.controls; let i = index;">
+                    <mat-form-field> <input matInput [formControlName]="i" placeholder="Fruit name"></mat-form-field>
+                    <p *ngIf="fruits.controls[i].hasError('required')">required</p>
+                </ng-container>
+            </form>
+            <p>Form Data</p>
+            <p> {{ fruitList.value | json }}</p>
+        </div>
+    </div>

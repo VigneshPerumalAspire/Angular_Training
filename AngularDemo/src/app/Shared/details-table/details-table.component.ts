@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -25,6 +25,11 @@ export class DetailsTableComponent implements OnInit, AfterViewInit  {
 
   ngOnInit(): void {
     console.log(this.tableData);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes)
+    this.tableData = changes['tableData'].currentValue
   }
 
   ngAfterViewInit() {

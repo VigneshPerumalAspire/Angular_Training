@@ -1,0 +1,49 @@
+<div class="toolbar theme-dependent-colors" role="banner">
+  <img width="40" alt="Angular Logo"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+  <span>Angular Interview</span>&nbsp;
+  <nav>
+    <a href="javascript:void(0)" routerLink="/home">Home</a>&nbsp;
+    <a href="javascript:void(0)"  routerLink="/dynamic">Dynamic</a>&nbsp;
+  </nav>
+  
+  <button mat-icon-button style="margin-left: auto;" [matMenuTriggerFor]="themeMenu">
+<mat-icon class="auto-flip">format_color_fill</mat-icon>
+</button>
+
+<mat-menu #themeMenu="matMenu">
+<mat-checkbox [checked]="isThemeDark"
+(click)="$event.stopPropagation()"
+        (change)="toggleDarkness()"
+        class="mat-menu-item theme-selector-is-dark">Dark
+</mat-checkbox>
+
+<mat-grid-list cols="2" class="theme-selectors-container">
+<mat-grid-tile *ngFor="let theme of themes">
+  <button mat-button class="theme-selector"
+        (click)="$event.stopPropagation(); setTheme(theme)">
+    <div [attr.class]="theme + ' theme-primary center'">
+      <div [attr.class]="theme + ' theme-accent'"></div>
+      <div [attr.class]="theme + ' theme-warn'"></div>
+      <mat-icon *ngIf="activeTheme===theme" class="center theme-check">done</mat-icon>
+    </div>
+  </button>
+</mat-grid-tile>
+</mat-grid-list>
+</mat-menu>
+</div>
+<div class="content" role="main">
+  <div class="container">
+    <div class="row text-center border-bottom">
+      <div class="col-12">
+        <h2>Hello project..!</h2>
+       <mat-card>
+        <router-outlet></router-outlet>
+      </mat-card>
+      </div>
+    </div>
+    <!-- <app-dynamic *ngIf="dynamic.length > 0" [dynamic]="dynamic"></app-dynamic> -->
+  </div>
+</div>
+
+

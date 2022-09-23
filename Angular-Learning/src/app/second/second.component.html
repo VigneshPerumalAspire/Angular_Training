@@ -1,0 +1,15 @@
+<div class="row" style="padding: 20px;">
+    <h3>{{ data.name }}</h3>
+    <p>{{ data.content }}</p><br>
+    <h3>Typed Form:</h3>
+    <form [formGroup]="userdetails" (ngSubmit)="formsubmit()">
+        <mat-form-field> <input matInput formControlName="firstname" placeholder="First name">
+        </mat-form-field>
+        <mat-form-field> <input matInput formControlName="lastname" placeholder="Last name">
+        </mat-form-field>
+        <mat-form-field> <input matInput formControlName="age" placeholder="Age">
+        </mat-form-field>
+        <button mat-raised-button type="submit">Submit</button>
+        <button mat-raised-button type="button" (click)="reset()">Reset</button>
+    </form>
+</div>

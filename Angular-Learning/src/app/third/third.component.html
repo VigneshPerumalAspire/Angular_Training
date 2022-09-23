@@ -1,0 +1,13 @@
+<div class="row" style="padding: 20px;">
+    <h3>{{ data.name }}</h3>
+    <p>{{ data.content }}</p>
+</div>
+<h3>Web Worker's</h3>
+<div>
+    <mat-form-field>
+        <input type="text" matInput [(ngModel)]="count">
+    </mat-form-field> &nbsp;
+    <button mat-stroked-button color="primary" (click)="normalCalculation()">Calculate</button>&nbsp;
+    <button mat-stroked-button color="accent">Calculate Web worker</button>
+
+</div>
